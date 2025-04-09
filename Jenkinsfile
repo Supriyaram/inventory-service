@@ -1,9 +1,7 @@
 
 pipeline {
     agent any
-    options {
-        timeout(time: 5, unit: 'MINUTES') // auto-aborts after 5 minutes
-    }
+    
     environment {
         MAVEN_HOME = '/usr/share/maven'   
         JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-amd64' // Adjust for your environment
@@ -13,7 +11,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/Supriyaram/inventory-service', branch: 'main'
+                git url: 'https://github.com/Supriyaram/order-service', branch: 'main'
             }
         }
 
