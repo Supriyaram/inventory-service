@@ -34,4 +34,5 @@ pipeline {
             echo 'Something went wrong during the build.'
         }
     }
+  }
 }
