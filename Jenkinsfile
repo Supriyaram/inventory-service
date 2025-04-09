@@ -1,9 +1,9 @@
-Jenkinsfile for creating and testing webhook pipeline
+// Jenkinsfile for creating and testing webhook pipeline
 pipeline {
     agent any
 
     stages {
-        #not needed when pipeline script from SCM is used
+        // not needed when pipeline script from SCM is used
         // stage('Checkout') {
         //     steps {
         //         git url: 'https://github.com/Supriyaram/inventory-service.git', branch: 'main'
