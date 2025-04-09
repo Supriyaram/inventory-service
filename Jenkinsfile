@@ -1,30 +1,25 @@
+Jenkinsfile for creating and testing webhook pipeline
 pipeline {
     agent any
 
-    // environment {
-    //     MAVEN_HOME = '/usr/share/maven'   // Adjust if your Maven is installed elsewhere
-    // }
-
     stages {
-        
+        #not needed when pipeline script from SCM is used
+        // stage('Checkout') {
+        //     steps {
+        //         git url: 'https://github.com/Supriyaram/inventory-service.git', branch: 'main'
+        //     }
+        // }
 
-        stage('Build with Maven') {
+        stage('Build with webhook') {
             steps {
-                // sh 'mvn clean install'
-                echo 'done dana doneeeeeeeee'
+                echo 'basic webhook setup'
             }
         }
-
-    //     stage('Archive Artifact') {
-    //         steps {
-    //             archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
-    //         }
-    //     }
     }
 
     post {
         success {
-            echo 'Build and webhook aaaaaaaaaaaa successful'
+            echo 'setup success '
         }
         failure {
             echo 'Something went wrong during the build.'
