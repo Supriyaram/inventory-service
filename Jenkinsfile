@@ -13,7 +13,7 @@ pipeline {
 
     post {
         success {
-            echo 'Setup success, build successful'
+            echo 'Setup success'
         }
         failure {
             echo 'Something went wrong during the build....'
