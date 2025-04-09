@@ -3,12 +3,6 @@ pipeline {
     agent any
 
     stages {
-        // not needed when pipeline script from SCM is used
-        // stage('Checkout') {
-        //     steps {
-        //         git url: 'https://github.com/Supriyaram/inventory-service.git', branch: 'main'
-        //     }
-        // }
 
         stage('Build with webhook') {
             steps {
