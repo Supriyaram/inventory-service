@@ -28,7 +28,7 @@ pipeline {
 
     post {
         success {
-            echo 'Build and archive successful!'
+            echo 'Build and webhook aaaaaaaaaaaa successful'
         }
         failure {
             echo 'Something went wrong during the build.'
