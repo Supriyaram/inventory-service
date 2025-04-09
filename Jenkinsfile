@@ -6,11 +6,7 @@ pipeline {
     // }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git url: 'https://github.com/Supriyaram/inventory-service.git', branch: 'main'
-            }
-        }
+        
 
         stage('Build with Maven') {
             steps {
