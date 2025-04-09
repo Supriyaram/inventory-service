@@ -11,23 +11,23 @@ pipeline {
     }
 
     stages {
-        // stage('Checkout') {
-        //     steps {
-        //         git url: 'https://github.com/Supriyaram/inventory-service', branch: 'main'
-        //     }
-        // }
-
-        stage('Build with Maven') {
+        stage('Checkout') {
             steps {
-                echo 'mvn clean install'
+                git url: 'https://github.com/Supriyaram/inventory-service', branch: 'main'
             }
         }
 
-        // stage('Archive Artifact') {
-        //     steps {
-        //         archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
-        //     }
-        // }
+        stage('Build with Maven') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+
+        stage('Archive Artifact') {
+            steps {
+                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+            }
+        }
     }
 
     post {
