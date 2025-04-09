@@ -19,10 +19,10 @@ pipeline {
 
     post {
         success {
-            echo 'setup success '
+            echo 'setup success'
         }
         failure {
-            echo 'Something went wrong during the build.'
+            echo 'failed, Something went wrong during the build'
         }
     }
   }
