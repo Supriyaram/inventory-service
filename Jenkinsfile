@@ -22,7 +22,7 @@ pipeline {
             echo 'setup success'
         }
         failure {
-            echo 'failed, Something went wrong during the build'
+            echo 'Something went wrong during the build'
         }
     }
   }
