@@ -43,7 +43,7 @@ pipeline {
 
         stage('Docker Tag') {
             steps {
-                sh 'docker tag $IMAGE_NAME $ECR_REPO_URI:inventory-service'
+                sh 'docker tag $IMAGE_NAME $ECR_REPO_URI:inventory'
             }
         }
 
