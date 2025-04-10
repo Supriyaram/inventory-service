@@ -15,7 +15,6 @@ pipeline {
         ECR_REPO_URI = "${ECR_REGISTRY_URL}/${ECR_REPO_NAME}"
 
 }
-    }
 
     stages {
         stage('Checkout stage') {
