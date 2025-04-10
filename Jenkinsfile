@@ -1,17 +1,20 @@
-
 pipeline {
     agent {
         label 'inventory'
     }
-    
+
     environment {
-        MAVEN_HOME = '/usr/share/maven'   
+        MAVEN_HOME = '/usr/share/maven'
         JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-amd64' // Adjust for your environment
         PATH = "${JAVA_HOME}/bin:${MAVEN_HOME}/bin:${env.PATH}"
         IMAGE_NAME = 'inventory-service'
         AWS_REGION = 'us-east-1' // Change this to your AWS region
         ECR_REGISTRY = '203918864735.dkr.ecr.us-east-1.amazonaws.com/images-repo'
-        ECR_REPO_URI = "${ECR_REGISTRY}/${IMAGE_NAME}"
+        ECR_REGISTRY_URL = '203918864735.dkr.ecr.us-east-1.amazonaws.com'
+        ECR_REPO_NAME = 'images-repo'
+        ECR_REPO_URI = "${ECR_REGISTRY_URL}/${ECR_REPO_NAME}"
+
+}
     }
 
     stages {
@@ -57,7 +60,7 @@ pipeline {
             }
         }
     }
-    
+
 
     post {
         success {
