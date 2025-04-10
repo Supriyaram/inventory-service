@@ -55,7 +55,7 @@ pipeline {
 
         stage('Push to ECR') {
             steps {
-                sh 'docker push $ECR_REPO_URI:latest'
+                sh 'docker push $ECR_REPO_URI:inventory-service:latest'
             }
         }
     }
