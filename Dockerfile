@@ -9,3 +9,5 @@ COPY target/*.jar app.jar
 
 # Run the JAR
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
+
