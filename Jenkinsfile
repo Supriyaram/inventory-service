@@ -1,8 +1,8 @@
 pipeline {
     agent any
-    // {
-        // label 'inventory'
-    // }
+    {
+        label 'inventory'
+    }
 
     stages {
 
