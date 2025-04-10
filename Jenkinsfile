@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Checkout stage') {
             steps {
-                git url: 'https://github.com/Supriyaram/order-service', branch: 'main'
+                git url: 'https://github.com/Supriyaram/inventory-service', branch: 'main'
             }
         }
 
