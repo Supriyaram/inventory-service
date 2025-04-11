@@ -59,7 +59,7 @@ pipeline {
                 sh 'docker push $ECR_REPO_URI:latest'
             }
         }
-        stage('Push to ECR'){
+        stage('Push to ECR mySQL'){
             steps{
                 sh 'docker pull mysql:latest'
 
