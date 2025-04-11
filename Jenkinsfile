@@ -15,6 +15,7 @@ pipeline {
         ECR_REPO_URI = "${ECR_REGISTRY_URL}/${ECR_REPO_NAME}"
 
 }
+    
 
     stages {
         stage('Checkout stage') {
@@ -43,7 +44,7 @@ pipeline {
 
         stage('Docker Tag') {
             steps {
-                sh 'docker tag $IMAGE_NAME $ECR_REPO_URI:inventory'
+                sh 'docker tag $IMAGE_NAME $ECR_REPO_URI:latest'
             }
         }
 
@@ -57,6 +58,16 @@ pipeline {
             steps {
                 sh 'docker push $ECR_REPO_URI:latest'
             }
+        }
+        stage('Push to ECR'){
+            steps{
+                sh 'docker pull mysql:latest'
+
+                sh 'docker tag mysql:latest $ECR_REPO_URI:mysql-latest'
+
+                sh 'docker push $ECR_REPO_URI:mysql-latest'
+            }
+
         }
     }
 
