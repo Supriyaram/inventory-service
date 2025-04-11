@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'inventory'
+        label 'slave-agent'
     }
 
     environment {
@@ -11,7 +11,7 @@ pipeline {
         AWS_REGION = 'us-east-1' // Change this to your AWS region
         ECR_REGISTRY = '203918864735.dkr.ecr.us-east-1.amazonaws.com/images-repo'
         ECR_REGISTRY_URL = '203918864735.dkr.ecr.us-east-1.amazonaws.com'
-        ECR_REPO_NAME = 'images-repo'
+        ECR_REPO_NAME = 'inventory-repo'
         ECR_REPO_URI = "${ECR_REGISTRY_URL}/${ECR_REPO_NAME}"
 
 }
@@ -59,16 +59,12 @@ pipeline {
                 sh 'docker push $ECR_REPO_URI:latest'
             }
         }
-        stage('Push to ECR mySQL'){
-            steps{
-                sh 'docker pull mysql:latest'
-
-                sh 'docker tag mysql:latest $ECR_REPO_URI:mysql-latest'
-
-                sh 'docker push $ECR_REPO_URI:mysql-latest'
+        stage('Docker Compose Up') {
+            steps {
+                sh 'docker-compose up -d --build'
             }
+        }   
 
-        }
     }
 
 
