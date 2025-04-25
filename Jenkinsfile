@@ -35,13 +35,13 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'sudo docker build -t $IMAGE_NAME .'
+                sh ' docker build -t $IMAGE_NAME .'
             }
         }
 
         stage('Docker Tag') {
             steps {
-                sh 'sudo docker tag $IMAGE_NAME $ECR_REPO_URI:latest'
+                sh ' docker tag $IMAGE_NAME $ECR_REPO_URI:latest'
             }
         }
 
@@ -53,12 +53,12 @@ pipeline {
 
         stage('Push to ECR') {
             steps {
-                sh 'sudo docker push $ECR_REPO_URI:latest'
+                sh ' docker push $ECR_REPO_URI:latest'
             }
         }
         stage('Docker Compose Up') {
             steps {
-                sh 'sudo docker-compose up -d --build'
+                sh ' docker-compose up -d --build'
             }
         }   
 
