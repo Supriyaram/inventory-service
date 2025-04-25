@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label Built-In Node 
+        label 'Built-In Node' 
             }
     environment {
         MAVEN_HOME = '/usr/share/maven'
