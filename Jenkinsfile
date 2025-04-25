@@ -56,11 +56,7 @@ pipeline {
                 sh ' docker push $ECR_REPO_URI:latest'
             }
         }
-        stage('Docker Compose Up') {
-            steps {
-                sh ' docker-compose up -d --build'
-            }
-        }   
+        
 
     }
 
