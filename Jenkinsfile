@@ -1,6 +1,7 @@
 pipeline {
-    agent any
-
+    agent {
+        label Built-In Node 
+            }
     environment {
         MAVEN_HOME = '/usr/share/maven'
         JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-amd64' // Adjust for your environment
