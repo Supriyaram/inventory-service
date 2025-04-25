@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'slave-agent'
-    }
+    agent any
 
     environment {
         MAVEN_HOME = '/usr/share/maven'
