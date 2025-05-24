@@ -57,6 +57,63 @@ pipeline {
             }
         }
         
+        stage('Approval for Deploy') {
+            steps {
+                input message: 'Proceed to deploy to Production?', ok: 'Deploy'
+            }
+        }
+
+
+        stage('Deploy to Prod') {
+            steps {
+                script {
+                    def deploymentFile = 'deploymentFile.yaml' // Adjust path
+                    sh "sed -i 's|IMAGE_PLACEHOLDER|${ECR_REPO_URI}:latest|' ${deploymentFile}"
+                    sh "kubectl apply -f ${deploymentFile} --namespace prod"
+                }
+            }
+        }
+
+        stage('Run Smoke Tests') {
+            steps {
+                sh './scripts/smoke_test.sh' // optional sanity check script
+            }
+        }
+
+        
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
     }
 
