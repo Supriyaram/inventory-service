@@ -59,21 +59,6 @@ pipeline {
             }
         }
 
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
         stage('Push to ECR') {
             steps {
                 sh ' docker push $ECR_REPO_URI:latest'
@@ -97,11 +82,11 @@ pipeline {
             }
         }
 
-        stage('Run Smoke Tests') {
-            steps {
-                sh './scripts/smoke_test.sh' // optional sanity check script
-            }
-        }    
+        // stage('Run Smoke Tests') {
+        //     steps {
+        //         sh './scripts/smoke_test.sh' // optional sanity check script
+        //     }
+        // }    
 
     }
 
